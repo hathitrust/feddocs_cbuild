@@ -1,1 +1,8 @@
 .env
+.bundle
+.client_secret.json
+.credentials/
+.rspec
+.ruby-version
+*.txt
+*.tsv

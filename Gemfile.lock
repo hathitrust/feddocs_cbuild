@@ -1,0 +1,164 @@
+GIT
+  remote: https://github.com/HTGovdocs/filter.git
+  revision: 64d624047fce4ac462c1a1b47bbf606a327fceeb
+  specs:
+    filter (0.2)
+      dotenv
+      google-api-client (= 0.11.2)
+
+GIT
+  remote: https://github.com/HTGovdocs/nauth.git
+  revision: 58b6e0251a49a8f470adc5704b6c33e1c4265d31
+  specs:
+    nauth (0.1)
+      dotenv
+
+GIT
+  remote: https://github.com/HTGovdocs/normalize.git
+  revision: 10b9abf908069a2d57fe6533266447279638863f
+  specs:
+    normalize (0.4)
+
+GIT
+  remote: https://github.com/HTGovdocs/registry.git
+  revision: 0af3373649c0916fe54510e496e680da513805ef
+  specs:
+    registry (0.9.4)
+      dotenv
+      library_stdnums (~> 1.0.2)
+      marc
+      mongoid
+      multi_json
+      mysql2
+      rspec
+      traject
+
+GIT
+  remote: https://github.com/HTGovdocs/viaf.git
+  revision: 86e5062d7eb16278aa16c6372f98be6addafe262
+  specs:
+    viaf (0.0.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (5.1.3)
+      activesupport (= 5.1.3)
+    activesupport (5.1.3)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (~> 0.7)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+    addressable (2.5.1)
+      public_suffix (~> 2.0, >= 2.0.2)
+    bson (4.2.2)
+    concurrent-ruby (1.0.5)
+    declarative (0.0.9)
+    declarative-option (0.1.0)
+    diff-lcs (1.3)
+    dot-properties (0.1.3)
+    dotenv (2.2.1)
+    faraday (0.13.1)
+      multipart-post (>= 1.2, < 3)
+    google-api-client (0.11.2)
+      addressable (>= 2.5.1)
+      googleauth (~> 0.5)
+      httpclient (>= 2.8.1, < 3.0)
+      mime-types (>= 3.0)
+      representable (~> 3.0)
+      retriable (>= 2.0, < 4.0)
+    googleauth (0.5.3)
+      faraday (~> 0.12)
+      jwt (~> 1.4)
+      logging (~> 2.0)
+      memoist (~> 0.12)
+      multi_json (~> 1.11)
+      os (~> 0.9)
+      signet (~> 0.7)
+    hashie (3.5.6)
+    httpclient (2.8.3)
+    i18n (0.8.6)
+    jwt (1.5.6)
+    library_stdnums (1.0.2)
+    little-plugger (1.1.4)
+    logging (2.2.2)
+      little-plugger (~> 1.1)
+      multi_json (~> 1.10)
+    marc (1.0.2)
+      scrub_rb (>= 1.0.1, < 2)
+      unf
+    marc-fastxmlwriter (1.0.0)
+      marc (~> 1.0)
+    memoist (0.16.0)
+    mime-types (3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2016.0521)
+    minitest (5.10.3)
+    mongo (2.4.3)
+      bson (>= 4.2.1, < 5.0.0)
+    mongoid (6.2.1)
+      activemodel (~> 5.1)
+      mongo (>= 2.4.1, < 3.0.0)
+    multi_json (1.12.1)
+    multipart-post (2.0.0)
+    mysql2 (0.4.9)
+    os (0.9.6)
+    public_suffix (2.0.5)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
+    retriable (3.1.1)
+    rspec (3.6.0)
+      rspec-core (~> 3.6.0)
+      rspec-expectations (~> 3.6.0)
+      rspec-mocks (~> 3.6.0)
+    rspec-core (3.6.0)
+      rspec-support (~> 3.6.0)
+    rspec-expectations (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-mocks (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-support (3.6.0)
+    scrub_rb (1.0.1)
+    signet (0.7.3)
+      addressable (~> 2.3)
+      faraday (~> 0.9)
+      jwt (~> 1.5)
+      multi_json (~> 1.10)
+    slop (3.6.0)
+    thread_safe (0.3.6)
+    traject (2.3.3)
+      concurrent-ruby (>= 0.8.0)
+      dot-properties (>= 0.1.1)
+      hashie (~> 3.1)
+      httpclient (~> 2.5)
+      marc (~> 1.0)
+      marc-fastxmlwriter (~> 1.0)
+      slop (>= 3.4.5, < 4.0)
+      yell
+    tzinfo (1.2.3)
+      thread_safe (~> 0.1)
+    uber (0.1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.4)
+    yell (2.0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dotenv
+  filter!
+  google-api-client (= 0.11.2)
+  mysql2
+  nauth!
+  normalize!
+  registry!
+  viaf!
+
+BUNDLED WITH
+   1.10.6
