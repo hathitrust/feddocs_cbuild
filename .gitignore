@@ -4,5 +4,5 @@
 .credentials/
 .rspec
 .ruby-version
-*.txt
-*.tsv
+.txt
+.tsv
