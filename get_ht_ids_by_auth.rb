@@ -16,7 +16,7 @@ open(auth_list).each do | line |
   # RegistryRecords might not agree about authorities.
   RegistryRecord.where(source_org_codes:"miaahdl",
                        deprecated_timestamp:{"$exists":0},
-                       author_lccns:auth).no_timeout.each do | reg |
+                       "$or":[{author_lccns:auth},{added_entry_lccns:auth}]).no_timeout.each do | reg |
     ht_ids = (reg.ht_ids_lv + reg.ht_ids_fv).uniq
     ht_ids.each do | local_id |
       local_id.gsub!(/^0+/, '')
@@ -30,7 +30,7 @@ open(auth_list).each do | line |
   end
   SourceRecord.where(org_code:"miaahdl",
                      deprecated_timestamp:{"$exists":0},
-                     author_lccns:auth).no_timeout.each do |src|
+                     "$or":[{author_lccns:auth},{added_entry_lccns:auth}]).no_timeout.each do |src|
     src.ht_item_ids.each {|id| puts id}
   end
 end
