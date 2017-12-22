@@ -1,4 +1,4 @@
-testing:
+development:
   clients:
     default:
       database: testing
@@ -8,7 +8,7 @@ testing:
       database: nauth
       hosts:
         - localhost:27017
-development:
+production:
   clients:
     default:
       database: htgd
