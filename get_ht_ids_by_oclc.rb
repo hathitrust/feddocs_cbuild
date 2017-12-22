@@ -7,7 +7,7 @@ require 'pp'
 Dotenv.load!
 SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
-Mongoid.load!(File.expand_path("../config/mongoid.yml", __FILE__), :development)
+Mongoid.load!(File.expand_path("../config/mongoid.yml", __FILE__), :production)
 
 oclcs = []
 open(ARGV.shift).each do |line|
