@@ -7,7 +7,7 @@ require 'pp'
 Dotenv.load!
 SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
-Mongoid.load!(File.expand_path("../config/mongoid.yml", __FILE__), :production)
+Mongoid.load!(ENV['MONGOID_CONF'], ENV['MONGOID_ENV'])
 
 auth_list = ARGV.shift
 num_according_to_regrecs = 0

@@ -5,7 +5,7 @@ SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
 
 #connect Mongoid
-Mongoid.load!("config/mongoid.yml", :development)
+Mongoid.load!(ENV['MONGOID_CONF'], ENV['MONGOID_ENV'])
 Mongo::Logger.logger.level = ::Logger::FATAL
 
 SourceRecord.where(org_code:"miaahdl",
