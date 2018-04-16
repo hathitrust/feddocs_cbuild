@@ -4,6 +4,6 @@
 .credentials/
 .rspec
 .ruby-version
-.txt
-.tsv
 config/mongoid.yml
+*.log
+*.tmp

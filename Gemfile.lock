@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/HTGovdocs/registry.git
-  revision: 209eac8e9a8795bfa1b2cc849aa7d86eb3c36441
+  revision: fda016d9c350d3a57286ff283c24fa596b1cc3a5
   specs:
     registry (0.9.5)
       dotenv
@@ -41,32 +41,27 @@ GIT
       rspec
       traject
 
-GIT
-  remote: https://github.com/HTGovdocs/viaf.git
-  revision: 86e5062d7eb16278aa16c6372f98be6addafe262
-  specs:
-    viaf (0.0.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.1.4)
-      activesupport (= 5.1.4)
-    activesupport (5.1.4)
+    activemodel (5.1.5)
+      activesupport (= 5.1.5)
+    activesupport (5.1.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
-    bson (4.2.2)
+    ast (2.4.0)
+    bson (4.3.0)
     concurrent-ruby (1.0.5)
     declarative (0.0.10)
     declarative-option (0.1.0)
     diff-lcs (1.3)
     dot-properties (0.1.3)
     dotenv (2.2.1)
-    faraday (0.13.1)
+    faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
     google-api-client (0.11.2)
       addressable (>= 2.5.1)
@@ -85,7 +80,7 @@ GEM
       signet (~> 0.7)
     hashie (3.5.7)
     httpclient (2.8.3)
-    i18n (0.9.1)
+    i18n (0.9.5)
       concurrent-ruby (~> 1.0)
     jwt (2.1.0)
     library_stdnums (1.0.2)
@@ -102,17 +97,22 @@ GEM
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
-    minitest (5.11.1)
-    mongo (2.4.3)
-      bson (>= 4.2.1, < 5.0.0)
-    mongoid (6.2.1)
-      activemodel (~> 5.1)
-      mongo (>= 2.4.1, < 3.0.0)
+    minitest (5.11.3)
+    mongo (2.5.1)
+      bson (>= 4.3.0, < 5.0.0)
+    mongoid (7.0.0)
+      activemodel (>= 5.1, < 6.0.0)
+      mongo (>= 2.5.1, < 3.0.0)
     multi_json (1.13.1)
     multipart-post (2.0.0)
     mysql2 (0.4.10)
     os (0.9.6)
-    public_suffix (3.0.1)
+    parallel (1.12.1)
+    parser (2.5.0.4)
+      ast (~> 2.4.0)
+    powerpack (0.1.1)
+    public_suffix (3.0.2)
+    rainbow (3.0.0)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -130,7 +130,15 @@ GEM
     rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
-    rspec-support (3.7.0)
+    rspec-support (3.7.1)
+    rubocop (0.53.0)
+      parallel (~> 1.10)
+      parser (>= 2.5)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.0, >= 1.0.1)
+    ruby-progressbar (1.9.0)
     scrub_rb (1.0.1)
     signet (0.8.1)
       addressable (~> 2.3)
@@ -148,12 +156,13 @@ GEM
       marc-fastxmlwriter (~> 1.0)
       slop (>= 3.4.5, < 4.0)
       yell
-    tzinfo (1.2.4)
+    tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.4)
+    unf_ext (0.0.7.5)
+    unicode-display_width (1.3.0)
     yell (2.0.7)
 
 PLATFORMS
@@ -168,7 +177,7 @@ DEPENDENCIES
   normalize!
   oclc_authoritative!
   registry!
-  viaf!
+  rubocop
 
 BUNDLED WITH
-   1.16.0
+   1.16.1
