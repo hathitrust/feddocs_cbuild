@@ -13,6 +13,7 @@ Mongoid.load!(ENV['MONGOID_CONF'], ENV['MONGOID_ENV'])
 
 SourceRecord.where(org_code: 'miaahdl',
                    in_registry: true,
-                   deprecated_timestamp: { "$exists": 0 }).no_timeout.each do |s|
+                   deprecated_timestamp: { "$exists": 0 }
+                  ).no_timeout.each do |s|
   s.ht_item_ids.each { |id| puts id }
 end
