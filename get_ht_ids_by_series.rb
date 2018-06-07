@@ -8,14 +8,17 @@ require 'registry'
 require 'dotenv'
 require 'pp'
 Dotenv.load!
-SourceRecord = Registry::SourceRecord
+RR = Registry::RegistryRecord
 Mongoid.load!(ENV['MONGOID_CONF'], ENV['MONGOID_ENV'])
 
 series = ARGV.shift
-SourceRecord.where(
-  org_code: 'miaahdl',
+RR.where(
   series: series,
-  deprecated_timestamp: { "$exists": 0 }
-).no_timeout.each do |src|
-  src.ht_item_ids.each { |id| puts id }
+  deprecated_timestamp:{"$exists":0},
+  source_org_codes: 'miaahdl' 
+).no_timeout.each do |reg|
+  reg.sources.each do |src|
+    next unless src.org_code == 'miaahdl'
+    src.ht_item_ids.each { |id| puts id }
+  end
 end
