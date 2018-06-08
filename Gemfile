@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'activesupport'
 gem 'dotenv'
 gem 'filter', git: 'https://github.com/HTGovdocs/filter.git'
 gem 'google-api-client', '0.11.2'
@@ -12,5 +13,6 @@ gem 'normalize', git: 'https://github.com/HTGovdocs/normalize.git'
 gem 'oclc_authoritative', git: 'https://github.com/HTGovdocs/oclc_authoritative.git'
 gem 'registry', git: 'https://github.com/HTGovdocs/registry.git'
 gem 'rubocop'
+gem 'simplecov', require: false, group: :test
 gem 'watir', '~> 6.8'
 gem 'webdrivers'
