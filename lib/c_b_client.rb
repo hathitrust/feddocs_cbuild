@@ -48,6 +48,7 @@ class CBClient
   def add_ids(collection_id, ht_ids)
     ht_ids.each_slice(chunk_size) do |ids|
       @b.goto add_url collection_id, ids
+      sleep(1)
     end
   end
 
