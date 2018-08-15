@@ -69,7 +69,7 @@ if $PROGRAM_NAME == __FILE__
   when 'add'
     cb.add_ids ARGV[1], File.open(ARGV[2])
     puts cb.b.body.text
-  when 'remove'
+  when 'remove' || 'delete'
     cb.remove_ids ARGV[1], File.open(ARGV[2])
     puts cb.b.body.text
   end

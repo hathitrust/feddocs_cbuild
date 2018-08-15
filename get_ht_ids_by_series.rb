@@ -14,8 +14,8 @@ Mongoid.load!(ENV['MONGOID_CONF'], ENV['MONGOID_ENV'])
 series = ARGV.shift
 RR.where(
   series: series,
-  deprecated_timestamp:{"$exists":0},
-  source_org_codes: 'miaahdl' 
+  deprecated_timestamp: { "$exists": 0 },
+  source_org_codes: 'miaahdl'
 ).no_timeout.each do |reg|
   reg.sources.each do |src|
     next unless src.org_code == 'miaahdl'
