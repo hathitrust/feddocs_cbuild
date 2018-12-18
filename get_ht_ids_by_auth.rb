@@ -2,11 +2,12 @@
 
 # Take a list of authority links ("sameAs")
 # and spit out a list of HT item ids for collection building.
+require 'mongoid'
+Mongo::Logger.logger.level = ::Logger::FATAL
 require 'registry'
 require 'dotenv'
 require 'pp'
 Dotenv.load!
-Mongo::Logger.logger.level = ::Logger::FATAL
 SourceRecord = Registry::SourceRecord
 RegistryRecord = Registry::RegistryRecord
 Mongoid.load!(ENV['MONGOID_CONF'], ENV['MONGOID_ENV'])
