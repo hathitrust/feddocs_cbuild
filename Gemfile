@@ -11,6 +11,7 @@ gem 'mysql2'
 gem 'nauth', git: 'https://github.com/HTGovdocs/nauth.git'
 gem 'normalize', git: 'https://github.com/HTGovdocs/normalize.git'
 gem 'oclc_authoritative', git: 'https://github.com/HTGovdocs/oclc_authoritative.git'
+gem 'ecmangle', git: 'https://github.com/HTGovdocs/ecmangle.git'
 gem 'registry', git: 'https://github.com/HTGovdocs/registry.git'
 gem 'rubocop'
 gem 'simplecov', require: false, group: :test

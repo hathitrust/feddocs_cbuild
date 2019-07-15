@@ -36,10 +36,10 @@ class CBClient
     headless.start
     @b = Watir::Browser.new
     @b.goto 'https://babel.hathitrust.org/cgi/mb?colltype=my-collections'
-    @b.link(id: 'login-button').click
+    @b.link(id: 'login-link').click
     @b.button(class: 'continue').click
     sleep(3)
-    @b.text_field(id: 'login').set(ENV['username'])
+    @b.text_field(id: 'login-visible').set(ENV['username'])
     @b.text_field(id: 'password').set(ENV['password'])
     @b.button(id: 'loginSubmit').click
     @b
