@@ -5,6 +5,7 @@ require 'watir'
 require 'headless'
 require 'dotenv'
 require 'pp'
+require 'pry'
 Dotenv.load!
 
 # Wrapper around a headless Watir Browser.
@@ -19,7 +20,7 @@ class CBClient
   end
 
   def chunk_size
-    @chunk_size || 100
+    @chunk_size || 10
   end
 
   def add_url(collection_id, ht_ids)
@@ -48,13 +49,22 @@ class CBClient
   def add_ids(collection_id, ht_ids)
     ht_ids.each_slice(chunk_size) do |ids|
       @b.goto add_url collection_id, ids
-      sleep(1)
+      body_text = @b.body.text
+      if body_text =~ /error/
+        puts body_text
+        puts ids.join(", ") 
+      end
+      sleep(0.4)
     end
   end
 
   def remove_ids(collection_id, ht_ids)
     ht_ids.each_slice(chunk_size) do |ids|
       @b.goto remove_url collection_id, ids
+      body_text = @b.body.text
+      puts body_text
+      puts ids.join(", ")
+      sleep(0.4)
     end
   end
 
