@@ -51,4 +51,5 @@ bundle exec ruby get_ht_ids_by_series.rb 'Congressional Serial Set' | sort -T tm
 # comm -1 -3 data/serial_set_ht_item_ids.$D.txt data/serial_set_current_ht_item_ids.$D.txt\
 #  > data/serial_set_deleted_ht_item_ids.$D.txt
 
-
+# TRAIL
+bash get_trail_item_ids.sh
