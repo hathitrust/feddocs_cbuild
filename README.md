@@ -15,22 +15,34 @@ The following collections are also owned by that user, but are static or manuall
 - [U.S. Census of Population: 1950](https://babel.hathitrust.org/cgi/mb?a=listis;c=1986287266)
 - [United States Decennial Census, 1790-1930](https://babel.hathitrust.org/cgi/mb?a=listis;c=1155585587)
 
-## get_item_lists.sh ##
-This is typically run Quarterly and retrieves HT Item IDs for the appropriate collections. Dependencies include:
+## process_collections.rb
+This is the top-level script that runs all of the below in the correct order.
+Should be run monthly or quarterly from a cron job.
+
+### get_item_lists.sh
+Retrieves HT Item IDs for the appropriate collections. Dependencies include:
 - `get_ht_ids_by_auth.rb` for BOIA, EPA, and CRC
 - `get_ht_ids_by_series.rb` for Serial Set, Foreign Relations, and CRC
 - `get_ht_ids.rb` for the Mondo collection
 - The latest full hathifile in the archive directory, for TRAIL
 
-## Updating the collections ##
-Historically, I diffed the new lists with the old lists or the lists downloaded from Hathitrust. See `get_new_and_deleted.sh`
-These were then fed to the `c_b_client` which uses a headless browser to add/delete items. e.g.
-`bundle exec ruby lib/c_b_client.rb add <collection_id> data/<coll>_new_ht_item_ids.<date>.txt`
-I tended not to delete item ids that often because Series/Authority inclusion is pretty ambiguous to begin with, except for the Mondo collection.
+Output: data/*collection*_ht_item_ids.txt
 
-I had hopes of developing a more fully featured collection management infrastructure on top of this "API" and have a proper collection builder API to slot into it. Neither happened.
+### get_collection_state.rb
 
-Moving forward these lists of item ids should be run through traditional collection building infrastructure. 
+Retrieves the list of current HTIDs in each collection and then
+diffs each against the item lists generated above, in order to
+produce lists of additions and deletions.
 
-## ./data/ ##
-This directory's contents are currently gitignored, but past item lists have been committed in the past. Updating this may be a good way to provide additional public access to our collection lists.
+Output:
+- data/*collection*_current_ht_item_ids.txt
+- data/*collection*_new_ht_item_ids.txt
+- data/*collection*_deleted_ht_item_ids.txt
+
+### update_collections.rb
+
+Calls `/htapps/babel/mb/scripts/batch-collection.pl` with the `-a` and `-D` flags to process adds and deletes,
+respectively, for each of the collections.
+
+## ./data/
+Derived data is gitignored; there should be no compelling reason to archive or commit monthly or quarterly HTID lists.
