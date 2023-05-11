@@ -1,0 +1,64 @@
+development:
+  clients:
+    default:
+      database: testing
+      hosts:
+        - 10.255.8.142:27017
+      options:
+        server_selection_timeout: 2
+    nauth:
+      database: nauth
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 2
+production:
+  clients:
+    default:
+      database: htgd
+      hosts:
+        - 10.255.8.142:27017
+      options:
+        server_selection_timeout: 2
+    nauth:
+      database: nauth
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 2
+logs:
+  clients:
+    default:
+      database: logs
+      hosts:
+        - 10.255.8.142:27017
+      options:
+        server_selection_timeout: 2
+htonly: 
+  clients:
+    default:
+      database: htonly
+      hosts:
+        - 10.255.8.142:27017
+      options:
+        server_selection_timeout: 2
+    nauth:
+      database: nauth
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 2
+zephir_full: 
+  clients:
+    default:
+      database: zephir_full
+      hosts:
+        - 10.255.8.142:27017
+      options:
+        server_selection_timeout: 2
+    nauth:
+      database: nauth
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 2
