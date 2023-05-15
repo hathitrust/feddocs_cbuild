@@ -17,14 +17,37 @@ def apply_additions(name:, id:)
   `#{cmd}`
 end
 
-def apply_deletions(name: collection_name, id: collection_id)
-  deletions = File.expand_path("data/#{name}_deleted_ht_item_ids.txt")
-  unless File.readable?(deletions)
-    puts "Can't read deletions in #{deletions}, skipping"
+def apply_deletions(name:, id:)
+  deleted_path = File.expand_path("data/#{name}_deleted_ht_item_ids.txt")
+  current_path = File.expand_path("data/#{name}_current_ht_item_ids.txt")
+  unless File.readable?(deleted_path)
+    puts "Can't read deletions in #{deleted_path}, skipping"
     return
   end
-  cmd = base_command + "-D #{id} -f #{deletions}"
+  unless File.readable?(current_path)
+    puts "Can't read current ids in #{current_path}, skipping"
+    return
+  end
+  if too_many_deletions?(deleted_path: deleted_path, current_path: current_path)
+    puts "#{deleted_path} has too many deleted ids, skipping"
+    return
+  end
+  cmd = base_command + "-D #{id} -f #{deleted_path}"
   `#{cmd}`
+end
+
+# true if the number of deletions would be 10% or more of the current membership.
+def too_many_deletions?(deleted_path:, current_path:)
+  deleted_count = count_lines deleted_path
+  current_count = count_lines current_path
+  return true if current_count.zero?
+  deleted_count.to_f / current_count.to_f >= 0.1
+end
+
+def count_lines(path)
+  File.open(path, "r") do |file|
+    file.readlines.size
+  end
 end
 
 FeddocsCollections::COLLECTIONS.each do |name, id|
