@@ -1,3 +1,6 @@
+> [!IMPORTANT]  
+> As of January 2026, the registry and supporting code for the HathiTrust federal documents repository is defunct. This code is archived and is not maintained.
+
 # CBuild
 
 Bash and ruby for updating collections managed by the feddocs@hathitrust.org user. These include:
